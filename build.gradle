@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'ru.vit4liy.rsc'
+version = '1.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation files('libs/it72h-logger-lib.jar')
+}
+
+jar {
+    archiveBaseName = 'rsc-lib'
+    archiveVersion = version
+    archiveClassifier = ''
+
+    manifest {
+        attributes(
+                'Implementation-Title': 'Vit4liy\'s repository, service, controllers lib',
+                'Implementation-Version': version
+        )
+    }
+}
