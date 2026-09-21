@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'ru.vit4liy.rsc'
-version = '1.0'
+version = '1.1'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
@@ -17,6 +17,7 @@ repositories {
 
 dependencies {
     implementation files('libs/it72h-logger-lib.jar')
+    implementation files('libs/perm-lib-1.2a.jar')
 }
 
 jar {
