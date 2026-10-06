@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class IntersectionService<T extends IntersectionEntity> extends Service<T> {
+public abstract class IntersectionService<T extends IntersectionEntity> extends Service<T> implements GenericIntersectionBusService<T>{
     public IntersectionService(IntersectionRepository<T> intersectionRepository, PermissionService permissionService) {
         super(intersectionRepository, permissionService);
     }

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class EntityService<T extends DatabaseEntity> extends Service<T> {
+public abstract class EntityService<T extends DatabaseEntity> extends Service<T> implements GenericDatabaseBusService<T> {
     public EntityService(EntityRepository<T> entityRepository, PermissionService permissionService) {
         super(entityRepository, permissionService);
     }

@@ -9,7 +9,7 @@ import ru.vit4liy.rsc.repository.Repository;
 import java.sql.SQLException;
 import java.util.List;
 
-public abstract class Service <T extends Entity>{
+public abstract class Service <T extends Entity> implements GenericBusService<T>{
     protected final Repository<T> repository;
     protected final PermissionService permissionService;
 
