@@ -9,20 +9,14 @@ import ru.vit4liy.rsc.repository.Repository;
 import java.sql.SQLException;
 import java.util.List;
 
-public abstract class Service <T extends Entity> implements GenericBusService<T>{
-    protected final Repository<T> repository;
+public abstract class Service implements GenericBusService{
     protected final PermissionService permissionService;
 
-    public Service(Repository<T> entityRepository, PermissionService permissionService) {
-        this.repository = entityRepository;
+    public Service(PermissionService permissionService) {
         this.permissionService = permissionService;
     }
 
-    public List<T> getAll() throws SQLException, MissingPermissionException {
-        return repository.findAll();
-    }
-
-    public void requirePermissions(Permissible permissible, String permission) throws MissingPermissionException {
+    protected void requirePermissions(Permissible permissible, String permission) throws MissingPermissionException {
         if(permissionService == null) return;
         permissionService.checkPermissions(permissible, permission);
     }
