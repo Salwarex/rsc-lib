@@ -42,6 +42,21 @@ public abstract class EntityRepository<T extends DatabaseEntity> extends Reposit
         }
     }
 
+    @Override
+    public boolean update(T entity) throws SQLException {
+        String sql = sqlUpdate();
+        try (Connection conn = db.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+            statementPrepare(stmt, entity);
+
+            String[] attributes = sqlTableAttributes();
+            int setParamCount = (attributes.length - 2) / 2;
+
+            stmt.setLong(setParamCount + 1, entity.getId());
+
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
     protected String sqlUpdate(){
         String[] attributes = sqlTableAttributes();
         StringBuilder lineAttributesBuilder = new StringBuilder();
