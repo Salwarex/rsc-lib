@@ -5,13 +5,12 @@ import ru.vit4liy.perm.Permissible;
 import ru.vit4liy.perm.PermissionService;
 import ru.vit4liy.rsc.entity.DatabaseEntity;
 import ru.vit4liy.rsc.repository.EntityRepository;
-import ru.vit4liy.rsc.repository.Repository;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class EntityService<T extends DatabaseEntity> extends RepositoryService<T> implements GenericDatabaseBusService<T> {
+public abstract class EntityService<T extends DatabaseEntity> extends RepositoryService<T> implements GenericEntityBusService<T> {
     public EntityService(EntityRepository<T> entityRepository, PermissionService permissionService) {
         super(entityRepository, permissionService);
     }
