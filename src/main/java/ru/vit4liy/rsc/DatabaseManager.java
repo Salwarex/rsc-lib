@@ -111,7 +111,7 @@ public class DatabaseManager {
         return conn;
     }
 
-    private void createTables() {
+    public void createTables() {
         String pk = isMySQL ? "BIGINT PRIMARY KEY AUTO_INCREMENT" : "INTEGER PRIMARY KEY AUTOINCREMENT";
         String bigint = isMySQL ? "BIGINT" : "INTEGER";
         String intType = isMySQL ? "INT" : "INTEGER";
